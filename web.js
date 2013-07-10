@@ -4,9 +4,9 @@ var app = express.createServer(express.logger());
 
 var fs = require('fs');
 
-var buffer = new Buffer(56);
+var buffer = fs.readFileSync("index.html");
 
-var text = "Hello world again";
+var text = buffer.toString("utf-8");
 
 app.get('/', function(request, response) {
   response.send(text);
